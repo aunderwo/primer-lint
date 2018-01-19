@@ -112,7 +112,7 @@ def localprimerdimer(minscore, processeddata, arguments):
 			primerdimeroutput = primerdimertest.pdlocal()
 
 			for item in primerdimeroutput:
-				logoutput.write("Comparing '%s' and '%s':\n" %\
+				logoutput.write("Comparing %s and %s:\n" %\
 				(itemone[0], itemtwo[0]))
 				yield amod.PrimerDimer.\
 					format_alignment_compl(item[0],
@@ -253,7 +253,7 @@ def main():
 
 	if args.primerdimer != None:	
 		try:
-			logoutput.write("PRIMER-DIMER DETECTION --------------\n")
+			logoutput.write("PRIMER-DIMER DETECTION\n======================\n\n")
 			for item in localprimerdimer(args.primerdimer, importeddata, args):
 				logoutput.write(item)
 		except:
@@ -270,7 +270,7 @@ def main():
 
 	if args.hairpin != None:
 		try:
-			logoutput.write("HAIRPIN DETECTION: --------------------\n")
+			logoutput.write("HAIRPIN DETECTION\n=================\n\n")
 			for num, row in enumerate(importeddata):
 				# print ("%d. Testing %s for hairpin...") % (num, row[0])
 				for item in amod.Hairpin(row[1]).simpledetecthairpin(args.hairpin):

@@ -124,7 +124,7 @@ class PrimerDimer(Sequence):
 		s.append("\n")
 		# s.append("%s%s\n" % (" "*begin, "|"*(end-begin)))
 		s.append("%s\n" % compalign2)
-		s.append("  Score=%g\n" % score)
+		s.append("  Score=%g\n\n" % score)
 		return ''.join(s)
 
 
