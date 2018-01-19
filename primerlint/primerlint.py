@@ -111,9 +111,9 @@ def localprimerdimer(minscore, processeddata, arguments):
 				amod.Sequence(itemtwo[1]).complement(), minscore)
 			primerdimeroutput = primerdimertest.pdlocal()
 
-			logoutput.write("Comparing '%s' and '%s':\n" %\
-				(itemone[0], itemtwo[0]))
 			for item in primerdimeroutput:
+				logoutput.write("Comparing '%s' and '%s':\n" %\
+				(itemone[0], itemtwo[0]))
 				yield amod.PrimerDimer.\
 					format_alignment_compl(item[0],
 					item[1],

@@ -110,9 +110,19 @@ class PrimerDimer(Sequence):
 		### be better?
 		s = []
 		compalign2 = Sequence(align2).complement()
+		complementary_bases= {"G": "C", "A": "T", "T" : "A", "C" : "G"}
 
 		s.append("%s\n" % align1)
-		s.append("%s%s\n" % (" "*begin, "|"*(end-begin)))
+		for index, for_char in enumerate(align1):
+			if for_char == "-" or compalign2[index] == "-":
+				s.append(" ")
+			else:
+				if for_char == complementary_bases[compalign2[index]]:
+					s.append("|")
+				else:
+					s.append(" ")
+		s.append("\n")
+		# s.append("%s%s\n" % (" "*begin, "|"*(end-begin)))
 		s.append("%s\n" % compalign2)
 		s.append("  Score=%g\n" % score)
 		return ''.join(s)
